@@ -24,7 +24,7 @@ def create_data_set():
             for content in contents:
                 img = cv2.imread(content)
                 gray_scale = np.array(cv2.resize(cv2.cvtColor(
-                    img, cv2.COLOR_BGR2GRAY), dsize=(28, 28), interpolation=cv2.INTER_CUBIC))
+                    img, cv2.COLOR_BGR2GRAY), dsize=(64, 64), interpolation=cv2.INTER_CUBIC))
                 gray_scale = gray_scale.flatten()
                 X.append(gray_scale)
                 Y.append(label)
