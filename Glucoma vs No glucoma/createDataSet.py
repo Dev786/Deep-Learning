@@ -23,14 +23,13 @@ def create_data_set():
             os.chdir(os.path.curdir + "/" + folder)
             for content in contents:
                 img = cv2.imread(content)
-                gray_scale = np.array(cv2.resize(cv2.cvtColor(
-                    img, cv2.COLOR_BGR2GRAY), dsize=(64, 64), interpolation=cv2.INTER_CUBIC))
+                gray_scale = np.array(cv2.resize(img,dsize=(64,64),interpolation=cv2.INTER_LINEAR))
                 gray_scale = gray_scale.flatten()
                 X.append(gray_scale)
                 Y.append(label)
             os.chdir('../')
     # print(Y[0])
-    X = [preprocess_x(d) for d in X]
+    # X = [preprocess_x(d) for d in X]
     print(X[0])
     input_file = open('input_data.pkl', 'wb')
     label_file = open('label_data.pkl', 'wb')
