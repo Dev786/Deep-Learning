@@ -84,8 +84,8 @@ init = tf.global_variables_initializer()
 
 with tf.Session() as sess:
     sess.run(init)
-    test_X = features[41:45]
-    test_Y = one_hot_labels[41:45]
+    test_X = features[[10,20,25,41,48,56]]
+    test_Y = one_hot_labels[[10,20,25,41,48,56]]
     for _ in range(0, epochs):
         cost_value = 0
         accuracy_train = 0

@@ -16,7 +16,7 @@ def create_data_set():
     Y = []
 
     for folder in folders:
-        if os.path.isdir(os.path.curdir + "/" + folder):
+        if os.path.isdir(os.path.curdir + "/" + folder) and folder in ["Glaucoma","Non Glaucoma"]:
             label = 1 if folder == 'Glaucoma' else 0
             print(label)
             contents = os.listdir(folder)
@@ -30,7 +30,7 @@ def create_data_set():
             os.chdir('../')
     # print(Y[0])
     # X = [preprocess_x(d) for d in X]
-    print(X[0])
+    # print(X[0])c
     input_file = open('input_data.pkl', 'wb')
     label_file = open('label_data.pkl', 'wb')
     pickle.dump(X, input_file)
